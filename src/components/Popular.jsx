@@ -19,6 +19,19 @@ const Popular = () => {
     fetchData();
   }, []);
 
+  const getRecipes = async () => {
+    const savedData = localStorage.getItem("popular");
+
+    if (savedData) {
+      setPopular(JSON.parse(savedData));
+    } else {
+      const response = await getPopular();
+
+      localStorage.setItem("popular", JSON.stringify(response.recipes));
+      setPopular(response.recipes);
+    };
+  };
+
 
   return (
     <section>
@@ -33,8 +46,8 @@ const Popular = () => {
         }}>
           {popular.map((recipe) => {
             return (
-              <SplideSlide>
-                <Card key={recipe.id}>
+              <SplideSlide key={recipe.id}>
+                <Card>
                   <p>{recipe.title}</p>
                   <img src={recipe.image} alt={recipe.title} />
                   <Gradient />
