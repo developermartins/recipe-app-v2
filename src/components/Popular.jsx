@@ -1,14 +1,32 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getPopular } from '../services/randomRecipe';
 
 const Popular = () => {
+
+  const [popular, setPopular] = useState([]);
+   
+
   useEffect(() => {
-    getPopular();
-  }, [])
+    const fetchData = async () => {
+      const response = await getPopular();
+      
+      setPopular(response.recipes)
+    };
+
+    fetchData();
+  }, []);
 
 
   return (
-    <div>Popular</div>
+    <section>
+      {popular.map((recipe) => {
+        return (
+          <div key={recipe.id}>
+            <p>{recipe.title}</p>
+          </div>
+        )
+      })}
+    </section>
   );
 };
 
