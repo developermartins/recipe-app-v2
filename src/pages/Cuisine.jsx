@@ -52,6 +52,6 @@ const Card = styled.div`
         text-align: center;
         padding: 1rem;
     }
-`
+`;
 
 export default Cuisine;
