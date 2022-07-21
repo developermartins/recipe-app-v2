@@ -1,13 +1,12 @@
 import { FaPizzaSlice, FaHamburger } from 'react-icons/fa';
-import {  GiNoodles, GiChopSticks  } from 'react-icons/gi';
+import {  GiNoodles, GiChopsticks  } from 'react-icons/gi';
 import styled from 'styled-components';
 import React from 'react';
-import {  NavLink  } from 'react-router-dom';
 
 const Category = () => {
   return (
     <section>
-        <nav>
+        <List>
             <div>
                 <FaPizzaSlice />
                 <h4>Itália</h4>
@@ -21,12 +20,18 @@ const Category = () => {
                 <h4>China</h4>
             </div>
             <div>
-                <GiChopSticks />
+                <GiChopsticks />
                 <h4>Japão</h4>
             </div>
-        </nav>
+        </List>
     </section>
   );
 };
+
+const List = styled.div`
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0rem;
+`;
 
 export default Category;
