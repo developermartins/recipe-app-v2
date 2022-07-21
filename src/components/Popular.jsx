@@ -30,7 +30,7 @@ const Popular = () => {
       <Wrapper>
         <h3>Pratos mais preparados</h3>
         <Splide options={{
-          perPage: 3,
+          perPage: 4,
           arrows: false,
           pagination: false,
           drag: 'free',
@@ -58,7 +58,7 @@ const Wrapper = styled.div`
 `;
 
 const Card = styled.div`
-  min-height: 25rem;
+  min-height: 20rem;
   border-radius: 2rem;
   overflow: hidden;
 
