@@ -10,28 +10,20 @@ const Popular = () => {
    
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await getPopular();
-      
-      setPopular(response.recipes)
-    };
-
-    fetchData();
-  }, []);
-
-  const getRecipes = async () => {
     const savedData = localStorage.getItem("popular");
+    const getRecipes = async () => {
+      if (savedData) {
+        setPopular(JSON.parse(savedData));
+      } else {
+        const response = await getPopular();
 
-    if (savedData) {
-      setPopular(JSON.parse(savedData));
-    } else {
-      const response = await getPopular();
-
-      localStorage.setItem("popular", JSON.stringify(response.recipes));
-      setPopular(response.recipes);
+        localStorage.setItem("popular", JSON.stringify(response.recipes));
+        setPopular(response.recipes);
+      };
     };
-  };
 
+    getRecipes()
+  }, []);
 
   return (
     <section>
