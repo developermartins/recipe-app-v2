@@ -19,7 +19,12 @@ const Cuisine = () => {
     }, [params.type]);
 
   return (
-    <Grid>
+    <Grid
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+    >
         {cuisine.map((recipe) => {
             return (
                 <Card key={recipe.id}>
@@ -34,7 +39,7 @@ const Cuisine = () => {
   );
 };
 
-const Grid = styled.div`
+const Grid = styled(motion.section)`
     display: grid;
     grid-template-columns: 15rem 15rem 15rem 15rem;
     grid-gap: 3rem;
