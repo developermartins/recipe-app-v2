@@ -8,6 +8,7 @@ const Recipe = () => {
   let params = useParams();
 
   const [recipeDetails, setRecipeDetails] = useState({});
+  const [activeTab, setActiveTab] = useState('instructions');
 
   useEffect(() => {
     const getDetails = async (params) => {
@@ -26,8 +27,18 @@ const Recipe = () => {
         <img src={recipeDetails.image} alt={recipeDetails.title} />
       </div>
       <Info>
-        <Button>Instructions</Button>
-        <Button>Ingredients</Button>
+        <Button 
+          className={activeTab === 'instructions' ? 'active' : ''}
+          onClick={() => setActiveTab('instructions')}
+        >
+          Instructions
+        </Button>
+        <Button
+          className={activeTab === 'ingredients' ? 'active' : ''}
+          onClick={() => setActiveTab('ingredients')}
+        >
+          Ingredients
+        </Button>
       </Info>
     </DetailWrapper>
   );
