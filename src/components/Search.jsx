@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import {  FaSearch  } from 'react-icons/fa';
+import {  useNavigate  } from 'react-router-dom';
 
 const Search = () => {
 
     const [input, setInput] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('opa')
+        navigate("/searched/" + input);
     }
 
   return (
