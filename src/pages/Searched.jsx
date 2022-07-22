@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { getSearched } from '../services/searchedRecipe';
 import styled from 'styled-components';
 import NotFound from '../components/NotFound';
@@ -27,8 +27,10 @@ const Searched = () => {
       {searchedRecipes.length ? searchedRecipes.map((item) => {
         return (
           <Card key={item.id}>
-            <img src={item.image} alt={item.title} />
-            <h4>{item.title}</h4>
+            <Link to={"/recipe/" + item.id}>
+              <img src={item.image} alt={item.title} />
+              <h4>{item.title}</h4>
+            </Link>
           </Card>
         )
       }) : <NotFound />}
