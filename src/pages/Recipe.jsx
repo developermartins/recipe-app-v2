@@ -20,7 +20,16 @@ const Recipe = () => {
   }, []);
 
   return (
-    <div>{ recipeDetails.title }</div>
+    <DetailWrapper>
+      <div>
+        <h2>{recipeDetails.title}</h2>
+        <img src={recipeDetails.image} alt={recipeDetails.title} />
+      </div>
+      <Info>
+        <Button>Instructions</Button>
+        <Button>Ingredients</Button>
+      </Info>
+    </DetailWrapper>
   );
 };
 
