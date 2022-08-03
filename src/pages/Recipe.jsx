@@ -82,6 +82,10 @@ const DetailWrapper = styled.section`
   ul {
     margin-top: 2rem;
   }
+
+  img {
+    border-radius: 5px;
+  }
 `;
 
 const Button = styled.button`

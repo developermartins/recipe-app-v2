@@ -24,3 +24,8 @@ h3 {
 a {
     color: rgb(56, 56, 56);
 }
+
+.dark {
+    color: white;
+    background-color: rgb(34, 34, 34);
+}

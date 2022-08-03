@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Category from './components/Category';
 import Pages from './pages/Pages';
 import {  BrowserRouter as Router } from 'react-router-dom';
@@ -38,6 +38,13 @@ const Nav = styled.div`
   svg {
     font-size: 2rem;
   }
+`;
+
+const Button = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
 `;
 
 export default App;
